@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><title>Desmaio</title></head>
+<body>
+  <h1>Cenário: Criança desmaiada</h1>
+  <p>Uma criança desmaia. O que você faz primeiro?</p>
+
+  <button onclick="responder(true)">Verificar respiração</button><br>
+  <button onclick="responder(false)">Sacudir a criança</button>
+
+  <p id="feedback"></p>
+
+  <script>
+    function responder(correta) {
+      let pontos = parseInt(localStorage.getItem("pontos")) || 0;
+      if (correta) {
+        pontos++;
+        document.getElementById("feedback").textContent = "✅ Correto!";
+      } else {
+        document.getElementById("feedback").textContent = "❌ Errado!";
+      }
+      localStorage.setItem("pontos", pontos);
+      setTimeout(() => window.location.href = "queimadura.html", 1500);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><title>Queimadura</title></head>
+<body>
+  <h1>Cenário: Queimadura</h1>
+  <p>Uma criança encostou a mão em uma panela quente. O que você faz?</p>
+
+  <button onclick="responder(true)">Colocar a mão em água corrente fria</button><br>
+  <button onclick="responder(false)">Passar manteiga ou pasta de dente</button>
+
+  <p id="feedback"></p>
+
+  <script>
+    function responder(correta) {
+      let pontos = parseInt(localStorage.getItem("pontos")) || 0;
+      if (correta) {
+        pontos++;
+        document.getElementById("feedback").textContent = "✅ Correto!";
+      } else {
+        document.getElementById("feedback").textContent = "❌ Errado!";
+      }
+      localStorage.setItem("pontos", pontos);
+      setTimeout(() => window.location.href = "resultado.html", 1500);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><title>Engasgo</title></head>
+<body>
+  <h1>Cenário: Criança engasgada</h1>
+  <p>A criança começa a engasgar. O que você faz?</p>
+
+  <button onclick="responder(true)">Aplicar manobra de Heimlich</button><br>
+  <button onclick="responder(false)">Dar água</button>
+
+  <p id="feedback"></p>
+
+  <script>
+    function responder(correta) {
+      let pontos = parseInt(localStorage.getItem("pontos")) || 0;
+      if (correta) {
+        pontos++;
+        document.getElementById("feedback").textContent = "✅ Correto!";
+      } else {
+        document.getElementById("feedback").textContent = "❌ Errado!";
+      }
+      localStorage.setItem("pontos", pontos);
+      setTimeout(() => window.location.href = "desmaio.html", 1500); // vai pro próximo cenário
+    }
+  </script>
+</body>
+</html>
