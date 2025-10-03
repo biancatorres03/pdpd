@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Protótipo</title>
+</head>
+<body>
+  <h1>Primeiros Socorros - Protótipo</h1>
+
+  <div id="app"></div>
+
+  <script>
+    
+    let perguntas = [
+      {
+        pergunta: "A criança está engasgada. O que você faz?",
+        certa: "Aplicar manobra de Heimlich",
+        errada: "Dar água"
+      },
+      {
+        pergunta: "Uma criança desmaiou. O que você faz primeiro?",
+        certa: "Verificar respiração",
+        errada: "Sacudir a criança"
+      },
+    {
+        pergunta: "Uma criança encostou a mão em uma panela quente. O que você faz?",
+        certa: "Colocar a mão em água corrente fria",
+        errada: "Passar manteiga ou pasta de dente"
+      }
+    ];
+
+    let indice = 0;
+    let pontos = 0;
+
+    function mostrarPergunta() {
+      if (indice >= perguntas.length) {
+        document.getElementById("app").innerHTML =
+          "<h2>Fim</h2><p>Você acertou " + pontos + " de " + perguntas.length + "</p>";
+        return;
+      }
+
+      let p = perguntas[indice];
+      document.getElementById("app").innerHTML =
+        "<h2>" + p.pergunta + "</h2>" +
+        "<button onclick='responder(true)'>" + p.certa + "</button><br>" +
+        "<button onclick='responder(false)'>" + p.errada + "</button>";
+    }
+
+    function responder(correta) {
+      if (correta) { pontos++; alert("Correto!"); }
+      else { alert("Errado!"); }
+      indice++;
+      mostrarPergunta();
+    }
+
+    mostrarPergunta();
+  </script>
+</body>
+</html>
