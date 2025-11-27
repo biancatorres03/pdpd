@@ -2,18 +2,19 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Menu Inicial</title>
-  <link rel="stylesheet" href="IndexStyle.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Primeiros Socorros Infantil</title>
 </head>
 <body>
-  <h1>Treinamento de Primeiros Socorros</h1>
-  <button onclick="iniciar()">Iniciar Simulação</button>
 
-  <script>
-    function iniciar() {
-      localStorage.setItem("pontos", 0); // zera a pontuação
-      window.location.href = "engasgo.html"; // vai para o primeiro cenário
-    }
-  </script>
+  <h1>Primeiros Socorros Infantil</h1>
+  <p>Simualação 3D</p>
+
+  <div class="menu">
+    <a href="engasgo.html" class="btn">Engasgo</a>
+    <a href="queimadura.html" class="btn">Queimadura</a>
+    <a href="queda.html" class="btn">Queda</a>
+  </div>
+
 </body>
 </html>
