@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Resultado</title>
+</head>
+<body>
+
+<h1>Resultado da Simulação</h1>
+
+<p class="resultado">
+  Você acertou <span id="pontos"></span> de 3 perguntas!
+</p>
+
+<a href="index.html" class="btn">Voltar ao início</a>
+
+<script>
+  const pontos = localStorage.getItem("pontos") || 0;
+  document.getElementById("pontos").textContent = pontos;
+  localStorage.removeItem("pontos");
+</script>
+
+</body>
+</html>

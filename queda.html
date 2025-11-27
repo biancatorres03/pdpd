@@ -5,16 +5,30 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
   <script src="cena.js"></script>
-  <title>Queda</title>
+  <title>Simulação 3 - Queda</title>
 </head>
 <body>
-  <a href="index.html" class="voltar">Voltar</a>
-  <h1>Queda</h1>
 
-  <canvas id="canvas3d"></canvas>
+<a href="index.html" class="voltar">Voltar ao início</a>
+<h1>Simulação 3</h1>
 
-  <script>
-    iniciarCena(0x8dd16b);
-  </script>
+<p class="pergunta">
+  A criança caiu e bateu a cabeça. Qual atitude é correta?
+</p>
+
+<button class="btn" onclick="responder(true, 'resultado.html')">
+  Observar sinais e NÃO deixar a criança dormir
+</button>
+
+<button class="btn" onclick="responder(false, 'resultado.html')">
+  Colocar gelo diretamente sem proteção
+</button>
+
+<canvas id="canvas3d"></canvas>
+
+<script>
+  iniciarCena(0x8dd16b);
+</script>
+
 </body>
 </html>

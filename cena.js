@@ -32,3 +32,13 @@ function iniciarCena(corHex) {
 
   animate();
 }
+
+function responder(acertou, proximaPagina) {
+  let pontos = Number(localStorage.getItem("pontos") || 0);
+
+  if (acertou) pontos++;
+
+  localStorage.setItem("pontos", pontos);
+
+  window.location.href = proximaPagina;
+}

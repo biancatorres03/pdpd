@@ -52,3 +52,12 @@ canvas {
   box-shadow: 0 3px 12px #0002;
   margin-top: 10px;
 }
+.pergunta {
+  font-size: 18px;
+  margin: 20px;
+}
+
+.resultado {
+  font-size: 22px;
+  margin: 20px;
+}

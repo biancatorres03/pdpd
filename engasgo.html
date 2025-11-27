@@ -5,16 +5,30 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
   <script src="cena.js"></script>
-  <title>Engasgo</title>
+  <title>Simulação 1 - Engasgo</title>
 </head>
 <body>
-  <a href="index.html" class="voltar">Voltar</a>
-  <h1>Engasgo</h1>
 
-  <canvas id="canvas3d"></canvas>
+<a href="index.html" class="voltar">Voltar ao início</a>
+<h1>Simulação 1</h1>
 
-  <script>
-    iniciarCena(0x4fa3ff);
-  </script>
+<p class="pergunta">
+  Uma criança está engasgando e não consegue tossir. O que você faz?
+</p>
+
+<button class="btn" onclick="responder(true, 'queimadura.html')">
+  Aplicar manobra de Heimlich
+</button>
+
+<button class="btn" onclick="responder(false, 'queimadura.html')">
+  Oferecer água ou comida para 'descer'
+</button>
+
+<canvas id="canvas3d"></canvas>
+
+<script>
+  iniciarCena(0x4fa3ff);
+</script>
+
 </body>
 </html>
