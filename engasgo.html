@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
-  <script src="cena.js"></script>
-  <title>Simulação 1 - Engasgo</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Simulação 1 - Engasgo</title>
 </head>
 <body>
+    <a href="index.html" class="voltar">Voltar ao início</a>
+    
+    <h1>Simulação 1: Engasgo</h1>
+    
+    <p class="pergunta">
+        Um bebê engasgou e não consegue tossir ou chorar. O que você faz?
+    </p>
+    
+    <div class="menu">
+        <button class="btn" onclick="responder(true, 'queimadura.html')">
+            Fazer 5 batidas nas costas e 5 compressões
+        </button>
+        <button class="btn" onclick="responder(false, 'queimadura.html')">
+            Sacudir o bebê pelas pernas de cabeça para baixo
+        </button>
+    </div>
 
-<a href="index.html" class="voltar">Voltar ao início</a>
-<h1>Simulação 1</h1>
+    <div class="container-3d">
+        <canvas id="canvas3d"></canvas>
+    </div>
 
-<p class="pergunta">
-  Uma criança está engasgando e não consegue tossir. O que você faz?
-</p>
-
-<button class="btn" onclick="responder(true, 'queimadura.html')">
-  Aplicar manobra de Heimlich
-</button>
-
-<button class="btn" onclick="responder(false, 'queimadura.html')">
-  Oferecer água ou comida para 'descer'
-</button>
-
-<canvas id="canvas3d"></canvas>
-
-<script>
-  iniciarCena(0x4fa3ff);
-</script>
-
+    <script type="module">
+        import { iniciarCena } from './cena.js';
+        
+        const linkCena = "https://prod.spline.design/PqqbwCRYUMSHAM-c/scene.splinecode";
+        
+        iniciarCena(linkCena);
+    </script>
 </body>
 </html>

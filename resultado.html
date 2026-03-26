@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <title>Resultado</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Resultado Final</title>
 </head>
 <body>
+    <div class="resultado-box" style="margin-top: 10vh; padding: 40px; background: white; border-radius: 20px; shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <h1>Simulação Concluída!</h1>
+        
+        <p style="font-size: 1.4rem; margin: 20px 0;">
+            Você acertou <span id="res" style="color: #4fa3ff; font-weight: bold; font-size: 2rem;">0</span> de 3 situações.
+        </p>
 
-<h1>Resultado da Simulação</h1>
+        <p id="mensagem-final" style="font-style: italic; color: #555; margin-bottom: 30px;"></p>
 
-<p class="resultado">
-  Você acertou <span id="pontos"></span> de 3 perguntas!
-</p>
+        <a href="index.html" class="btn" onclick="localStorage.removeItem('pontos')">
+            Voltar ao Início
+        </a>
+    </div>
 
-<a href="index.html" class="btn">Voltar ao início</a>
+    <script>
 
-<script>
-  const pontos = localStorage.getItem("pontos") || 0;
-  document.getElementById("pontos").textContent = pontos;
-  localStorage.removeItem("pontos");
-</script>
+        const pontos = localStorage.getItem("pontos") || 0;
+        document.getElementById("res").innerHTML = pontos;
 
+
+        const msg = document.getElementById("mensagem-final");
+        if (pontos == 3) {
+            msg.innerHTML = "🏆 Excelente! Você demonstrou conhecimentos sólidos para salvar vidas.";
+        } else if (pontos >= 1) {
+            msg.innerHTML = "👍 Bom trabalho! Mas lembre-se de revisar os protocolos para garantir 100% de segurança.";
+        } else {
+            msg.innerHTML = "📚 É importante estudar mais os procedimentos. O conhecimento salva vidas em emergências.";
+        }
+    </script>
 </body>
 </html>

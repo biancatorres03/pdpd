@@ -1,44 +1,37 @@
+import { Application } from 'https://unpkg.com/@splinetool/runtime';
 
-function iniciarCena(corHex) {
-  const canvas = document.getElementById("canvas3d");
+export function iniciarCena(urlSpline) {
+    const canvas = document.getElementById('canvas3d');
+    const app = new Application(canvas);
 
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(
-    75,
-    canvas.clientWidth / canvas.clientHeight,
-    0.1,
-    1000
-  );
+    app.load(urlSpline).then(() => {
+        console.log("Cena do Spline carregada com sucesso!");
+        
 
-  const renderer = new THREE.WebGLRenderer({ canvas });
-  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        app.addEventListener('mouseDown', (e) => {
 
-  camera.position.z = 3;
+            
+            if (e.target.name === 'Manteiga') {
+                alert('Errado! Passar manteiga piora a queimadura porque retém o calor.');
+                window.responder(false, 'queda.html'); 
+            }
+            
 
-  const light = new THREE.DirectionalLight(0xffffff, 1);
-  light.position.set(5, 5, 5);
-  scene.add(light);
+            if (e.target.name === 'Torneira' || e.target.name === 'Panela') {
+                alert('Correto! O ideal é lavar com água corrente fria.');
+                window.responder(true, 'queda.html'); 
+            }
+        });
 
-  const geo = new THREE.BoxGeometry(1, 1, 1);
-  const mat = new THREE.MeshStandardMaterial({ color: corHex });
-  const cubo = new THREE.Mesh(geo, mat);
-  scene.add(cubo);
-
-  function animate() {
-    requestAnimationFrame(animate);
-    cubo.rotation.y += 0.01;
-    renderer.render(scene, camera);
-  }
-
-  animate();
+    }).catch(err => {
+        console.error("Erro ao carregar o Spline:", err);
+    });
 }
 
-function responder(acertou, proximaPagina) {
-  let pontos = Number(localStorage.getItem("pontos") || 0);
 
-  if (acertou) pontos++;
-
-  localStorage.setItem("pontos", pontos);
-
-  window.location.href = proximaPagina;
-}
+window.responder = function(acertou, proximaPagina) {
+    let pontos = Number(localStorage.getItem("pontos") || 0);
+    if (acertou) pontos++;
+    localStorage.setItem("pontos", pontos);
+    window.location.href = proximaPagina;
+};

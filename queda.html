@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
-  <script src="cena.js"></script>
-  <title>Simulação 3 - Queda</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Simulação 3 - Queda</title>
 </head>
 <body>
+    <a href="index.html" class="voltar">Voltar ao início</a>
+    
+    <h1>Simulação 3: Queda</h1>
+    
+    <p class="pergunta">
+        A criança caiu de uma altura considerável e bateu a cabeça. O que você faz?
+    </p>
+    
+    <div class="menu">
+        <button class="btn" onclick="responder(true, 'resultado.html')">
+            Manter a criança imóvel e observar a consciência
+        </button>
+        <button class="btn" onclick="responder(false, 'resultado.html')">
+            Dar água com açúcar e colocá-la para dormir logo
+        </button>
+    </div>
 
-<a href="index.html" class="voltar">Voltar ao início</a>
-<h1>Simulação 3</h1>
+    <div class="container-3d">
+        <canvas id="canvas3d"></canvas>
+    </div>
 
-<p class="pergunta">
-  A criança caiu e bateu a cabeça. Qual atitude é correta?
-</p>
-
-<button class="btn" onclick="responder(true, 'resultado.html')">
-  Observar sinais e NÃO deixar a criança dormir
-</button>
-
-<button class="btn" onclick="responder(false, 'resultado.html')">
-  Colocar gelo diretamente sem proteção
-</button>
-
-<canvas id="canvas3d"></canvas>
-
-<script>
-  iniciarCena(0x8dd16b);
-</script>
-
+    <script type="module">
+        import { iniciarCena } from './cena.js';
+        
+        const linkCena = "https://prod.spline.design/1QNDxLEFVvvrZPaz/scene.splinecode";
+        
+        iniciarCena(linkCena);
+    </script>
 </body>
 </html>

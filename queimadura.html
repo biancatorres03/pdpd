@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
-  <script src="cena.js"></script>
-  <title>Simulação 2 - Queimadura</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Simulação 2 - Queimadura</title>
 </head>
 <body>
+    <a href="index.html" class="voltar">Voltar ao início</a>
+    
+    <h1>Simulação 2: Queimadura</h1>
+    
+    <p class="pergunta">
+        Uma criança encostou a mão em uma panela quente. O que você faz?
+    </p>
+    
+    <div class="menu">
+        <button class="btn" onclick="responder(true, 'queda.html')">
+            Colocar em água corrente fria
+        </button>
+        <button class="btn" onclick="responder(false, 'queda.html')">
+            Passar manteiga ou pasta de dente
+        </button>
+    </div>
 
-<a href="index.html" class="voltar">Voltar ao início</a>
-<h1>Simulação 2</h1>
+    <div class="container-3d">
+    <canvas id="canvas3d"></canvas>
+    </div>
 
-<p class="pergunta">
-  Uma criança encostou a mão em uma panela quente. O que você faz?
-</p>
 
-<button class="btn" onclick="responder(true, 'queda.html')">
-  Colocar em água corrente fria
-</button>
-
-<button class="btn" onclick="responder(false, 'queda.html')">
-  Passar manteiga ou pasta de dente
-</button>
-
-<canvas id="canvas3d"></canvas>
-
-<script>
-  iniciarCena(0xff7b47);
-</script>
-
+    <script type="module">
+        import { iniciarCena } from './cena.js';
+        
+        const linkCena = "https://prod.spline.design/OsX9s-2ibQnZFsZ9/scene.splinecode";
+        
+        iniciarCena(linkCena);
+    </script>
 </body>
 </html>
